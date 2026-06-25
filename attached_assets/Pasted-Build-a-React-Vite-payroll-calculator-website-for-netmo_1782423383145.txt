@@ -1,0 +1,110 @@
+Build a React + Vite payroll calculator website for netmoneytools.com.
+
+TECH STACK:
+- React 18 + TypeScript
+- Vite (build tool)
+- Tailwind CSS
+- React Router DOM (for multi-page routing)
+- react-helmet-async (SEO meta tags)
+- localStorage (save user inputs, no backend)
+- jsPDF (for PDF export)
+- lucide-react (icons)
+
+DESIGN SYSTEM:
+- Primary: #2563eb (blue buttons, trust)
+- Secondary: #10b981 (emerald green for money/positive)
+- Background: #f8fafc (slate-50)
+- Cards: #ffffff (white with shadow-md)
+- Text headings: #0f172a (slate-900)
+- Body text: #475569 (slate-600)
+- Borders: #e2e8f0 (slate-200)
+- CTA/Highlight: #f59e0b (amber)
+- Error: #f43f5e (rose)
+- Font: Inter (via Google Fonts) or system-ui fallback
+- Mobile-first responsive
+
+SITE ARCHITECTURE:
+Create these pages/routes:
+
+1. HOME PAGE (/)
+   - Hero section: "Free Payroll & Tax Calculators for Every State"
+   - Subheadline: "Calculate your take-home pay, gross-up, and taxes. No signup required."
+   - Grid of tool cards (3-4 visible tools):
+     * Gross Up Calculator
+     * Paycheck Calculator
+     * Pay Stub Generator
+     * 1099 vs W-2 Comparison
+   - Trust badges: "Free Forever", "Mobile Friendly", "Updated for 2026"
+   - Footer with links to About, Privacy, Terms
+
+2. GROSS UP CALCULATOR (/gross-up-calculator)
+   - H1: "Gross Up Calculator 2026 | Net to Gross Pay Estimator"
+   - Meta title: "Gross Up Calculator 2026 | Net to Gross Pay Calculator"
+   - Meta description: "Calculate how much gross pay is needed for a desired net amount. Free employer payroll tool with federal, state, and FICA taxes."
+
+   INPUT FORM:
+   - Desired Net Pay ($ input)
+   - State dropdown (all 50 states + DC)
+   - Filing Status: Single, Married Filing Jointly, Head of Household
+   - Pay Frequency: Weekly, Biweekly, Semimonthly, Monthly
+   - Year: 2026 (dropdown)
+   - "Calculate" button (primary blue)
+
+   CALCULATION LOGIC:
+   Use iterative reverse calculation:
+   - Start with desired net pay as gross estimate
+   - Calculate federal tax using simplified 2026 brackets:
+     * Single: 10% to $11,925, 12% to $48,475, 22% to $103,350, etc.
+     * Married: 10% to $23,850, 12% to $96,950, etc.
+   - Calculate state tax using simplified flat rates by state (we'll refine later):
+     * No income tax states: 0% (TX, FL, WA, etc.)
+     * Flat rate states: ~4-5%
+     * Progressive states: simplified 3-6% average
+   - Calculate FICA: 6.2% Social Security (up to $168,600), 1.45% Medicare (no cap)
+   - Adjust gross upward iteratively until net equals desired amount
+   - Show results
+
+   RESULTS CARD:
+   - Required Gross Pay (large number)
+   - Federal Tax Withheld
+   - State Tax Withheld
+   - FICA (Social Security + Medicare)
+   - Net Pay (verification)
+   - Employer Total Cost
+   - "Copy Results" button
+   - "Download PDF" button (basic jsPDF table)
+   - "Start Over" button
+
+   BELOW CALCULATOR:
+   - FAQ section (3-5 questions) with schema markup
+   - Related tools: "Try our Paycheck Calculator" → link to /paycheck-calculator
+   - "What is a gross up?" explainer paragraph
+
+3. PAYCHECK CALCULATOR (/paycheck-calculator)
+   - Same design as gross up
+   - Inputs: Gross Pay, State, Filing Status, Pay Frequency
+   - Outputs: Net Pay, all tax breakdowns, effective tax rate
+   - Include state selector that changes URL to /paycheck-calculator/vermont etc.
+
+4. ABOUT PAGE (/about)
+   - "About NetMoneyTools"
+   - Your story: "I'm a pharmacist who built this after struggling with $300K in student loans and 1099 side gigs..."
+   - Mission: Free, accurate payroll tools
+   - Disclaimer: "This tool provides estimates only..."
+
+5. PRIVACY PAGE (/privacy)
+   - Standard privacy policy
+   - "We do not store personal data on servers. All calculations happen in your browser."
+
+SEO REQUIREMENTS:
+- Semantic HTML (header, nav, main, article, footer)
+- Schema.org Calculator markup on tool pages
+- Open Graph tags on every page
+- Canonical URLs
+- H1 on every page
+- Internal links between tools
+- Sitemap.xml (static)
+- robots.txt
+
+NO BACKEND. NO AUTH. NO DATABASE. Everything client-side.
+All state tax data can be hardcoded in a JSON file for now.

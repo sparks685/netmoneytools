@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://netmoneytools.com/sitemap.xml
