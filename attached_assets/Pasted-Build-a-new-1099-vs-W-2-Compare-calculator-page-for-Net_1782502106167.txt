@@ -1,0 +1,61 @@
+Build a new "1099 vs W-2 Compare" calculator page for NetMoneyTools.
+
+**File:** Create `src/pages/ContractorCompare.tsx` in the netmoneytools package
+
+**What it should do:**
+This is a side-by-side comparison tool showing someone the true financial difference between being a W-2 employee and a 1099 independent contractor for the SAME gross pay amount.
+
+**Input fields:**
+- Annual gross income ($)
+- State
+- Filing status (Single, Married Filing Jointly, etc.)
+- Pre-tax deductions for W-2 (401k, health insurance, HSA)
+- Business expenses for 1099 (deductible expenses)
+- QBI deduction checkbox (20% qualified business income deduction — default checked for eligible 1099 work)
+
+**Calculations to show side-by-side:**
+
+| | W-2 Employee | 1099 Contractor |
+|---|---|---|
+| Gross Income | $X | $X |
+| Pre-tax / Business deductions | $X | $X |
+| Taxable Income | $X | $X |
+| Federal Income Tax | $X | $X |
+| State Income Tax | $X | $X |
+| FICA (SS + Medicare) | 7.65% (employee half) | 15.3% Self-Employment Tax (on 92.35% of net) |
+| Self-Employment Tax Deduction | N/A | Deduct 50% of SE tax from income |
+| QBI Deduction (20%) | N/A | $X (if eligible) |
+| **Total Tax** | $X | $X |
+| **Take-Home Pay** | $X | $X |
+| Employer-paid FICA (hidden cost) | 7.65% | N/A (contractor pays all) |
+| **True Cost to Employer** | Gross + 7.65% FICA match | Just the gross payment |
+
+**Key insight to display:**
+- "To match W-2 take-home as a 1099 contractor, you need to charge: $X" (reverse calculation)
+- "As a 1099 contractor, you pay $X more in taxes but can deduct $X in business expenses"
+- "Your effective tax rate as W-2: X% | as 1099: Y%"
+
+**Tax calculation logic:**
+- Use existing federal and state tax tables from the project (check taxCalc.ts or paycheck calculator files)
+- W-2 FICA: 6.2% Social Security (up to wage base) + 1.45% Medicare (no cap) = 7.65%
+- 1099 Self-Employment Tax: 15.3% of 92.35% of net self-employment income
+- 1099 gets to deduct 50% of SE tax from federal taxable income
+- Add QBI: 20% deduction on qualified business income (after SE tax deduction, before federal tax)
+
+**Design:**
+- Side-by-side comparison layout (two columns on desktop, stacked on mobile)
+- Use the same card styling, input components, and blue primary color as existing calculators
+- Include NetMoneyTools header/nav
+- Add a "Download Comparison as PDF" button using jspdf
+- Add a "Print" button
+
+**Navigation updates:**
+- Add route `/1099-vs-w2` in App.tsx
+- Add "1099 vs W-2" to top nav between "Pay Stub" and "About"
+- Update the home page: change the "1099 vs W-2 Compare" card from "Coming Soon" to a live link with working icon
+
+**After building:**
+- Commit: "Add 1099 vs W-2 contractor comparison calculator"
+- Push to GitHub for Vercel auto-deploy
+
+Do not modify existing calculator pages. Only add the new page and update navigation/home links.
