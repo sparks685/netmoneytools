@@ -1,53 +1,95 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ShieldAlert, Target, ArrowRight } from "lucide-react";
+import { ShieldAlert, Target, ArrowRight, Wrench, Clock } from "lucide-react";
 
 export default function About() {
   return (
     <>
       <Helmet>
-        <title>About NetMoneyTools | Free Payroll Calculator Tools</title>
-        <meta name="description" content="Built by a pharmacist with $300K in student loans who needed real payroll answers. Free, accurate, no signup." />
+        <title>About NetMoneyTools | Free Payroll & Tax Calculators</title>
+        <meta name="description" content="NetMoneyTools builds free, accurate financial calculators for anyone who needs fast answers without signing up or jumping through paywalls." />
         <link rel="canonical" href="https://netmoneytools.com/about" />
         <meta property="og:title" content="About NetMoneyTools" />
-        <meta property="og:description" content="Built by a pharmacist who needed honest, free payroll tools." />
+        <meta property="og:description" content="Free, accurate financial calculators. No signup. No paywalls. Built for real-life use." />
         <meta property="og:url" content="https://netmoneytools.com/about" />
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <article className="max-w-3xl mx-auto space-y-10">
+      <article className="max-w-3xl mx-auto space-y-8">
         <header>
           <h1 className="text-4xl font-extrabold text-[#0f172a] tracking-tight mb-4">About NetMoneyTools</h1>
           <p className="text-lg text-[#475569] leading-relaxed">
-            Free, accurate payroll calculators built by someone who actually needed them.
+            NetMoneyTools builds free, accurate financial calculators for anyone who needs fast answers without signing up or jumping through paywalls.
+          </p>
+          <p className="text-[#475569] leading-relaxed mt-3">
+            We started with a simple frustration: most payroll and tax tools online are either buried behind registration walls, packed with ads, or give vague estimates that don't match real-world paychecks. So we built something better.
           </p>
         </header>
 
         <section className="bg-white rounded-xl border border-[#e2e8f0] shadow-md p-8 space-y-4">
-          <h2 className="text-2xl font-bold text-[#0f172a]">Our Story</h2>
+          <h2 className="text-2xl font-bold text-[#0f172a]">What We Do</h2>
           <p className="text-[#475569] leading-relaxed">
-            I am a pharmacist who built this site after struggling with over $300,000 in student loans and a complicated mix of W-2 employment and 1099 side gig income. Every time I needed to figure out my true take-home pay, or how much gross salary I actually needed to hit a net income target, I ran into the same problem: every tool online was either locked behind a paywall, required creating an account, or gave vague estimates buried in advertising.
+            Our calculators are designed for real-life use. Whether you're an employee negotiating salary, a freelancer planning quarterly taxes, or an employer budgeting total compensation, our tools give you precise numbers you can act on.
           </p>
           <p className="text-[#475569] leading-relaxed">
-            So I built the tool I wished existed. Fast, clear, no friction. Enter your numbers, get your answer. Done.
-          </p>
-          <p className="text-[#475569] leading-relaxed">
-            NetMoneyTools is designed for employees negotiating salaries, freelancers planning quarterly taxes, and employers budgeting total compensation — anyone who needs honest numbers without jumping through hoops.
+            Every calculator is built in-house with current federal and state tax data, and we keep them updated as tax laws change.
           </p>
         </section>
 
+        <div className="grid md:grid-cols-2 gap-6">
+          <section className="bg-white rounded-xl border border-[#e2e8f0] shadow-md p-6 space-y-3">
+            <div className="flex items-center gap-2 mb-1">
+              <Wrench className="text-[#2563eb]" size={20} />
+              <h2 className="text-xl font-bold text-[#0f172a]">Current Tools</h2>
+            </div>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-2">
+                <ArrowRight size={15} className="text-[#10b981] mt-0.5 shrink-0" />
+                <span className="text-sm text-[#475569]"><strong className="text-[#0f172a]">Gross Up Calculator</strong> — Find the gross salary needed to hit a specific net take-home amount after taxes.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <ArrowRight size={15} className="text-[#10b981] mt-0.5 shrink-0" />
+                <span className="text-sm text-[#475569]"><strong className="text-[#0f172a]">Paycheck Calculator</strong> — Calculate exact take-home pay after federal, state, and local taxes for all 50 states.</span>
+              </li>
+            </ul>
+          </section>
+
+          <section className="bg-white rounded-xl border border-[#e2e8f0] shadow-md p-6 space-y-3">
+            <div className="flex items-center gap-2 mb-1">
+              <Clock className="text-[#f59e0b]" size={20} />
+              <h2 className="text-xl font-bold text-[#0f172a]">Coming Soon</h2>
+            </div>
+            <ul className="space-y-2">
+              {[
+                "Pay Stub Generator",
+                "1099 vs W-2 Compensation Compare",
+                "Currency & Money Converters",
+                "Additional financial and tax planning tools",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <ArrowRight size={15} className="text-[#94a3b8] mt-0.5 shrink-0" />
+                  <span className="text-sm text-[#475569]">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+
         <section className="bg-white rounded-xl border border-[#e2e8f0] shadow-md p-8 space-y-4">
           <div className="flex items-center gap-3 mb-2">
-            <Target className="text-[#2563eb]" size={24} />
-            <h2 className="text-2xl font-bold text-[#0f172a]">Our Mission</h2>
+            <Target className="text-[#2563eb]" size={22} />
+            <h2 className="text-2xl font-bold text-[#0f172a]">Our Approach</h2>
           </div>
           <ul className="space-y-3 text-[#475569]">
-            <li className="flex items-start gap-2"><ArrowRight size={16} className="text-[#10b981] mt-1 shrink-0" /><span><strong className="text-[#0f172a]">Free forever.</strong> No subscriptions, no "premium" features, no bait-and-switch.</span></li>
-            <li className="flex items-start gap-2"><ArrowRight size={16} className="text-[#10b981] mt-1 shrink-0" /><span><strong className="text-[#0f172a]">No signup required.</strong> Your time is valuable. Get your answer in seconds.</span></li>
-            <li className="flex items-start gap-2"><ArrowRight size={16} className="text-[#10b981] mt-1 shrink-0" /><span><strong className="text-[#0f172a]">Updated annually.</strong> Tax brackets and FICA rates are updated each year.</span></li>
-            <li className="flex items-start gap-2"><ArrowRight size={16} className="text-[#10b981] mt-1 shrink-0" /><span><strong className="text-[#0f172a]">Private by design.</strong> All calculations happen in your browser. We never see your numbers.</span></li>
+            <li className="flex items-start gap-2"><ArrowRight size={16} className="text-[#10b981] mt-1 shrink-0" /><span><strong className="text-[#0f172a]">No signup required.</strong> Get your answer without creating an account.</span></li>
+            <li className="flex items-start gap-2"><ArrowRight size={16} className="text-[#10b981] mt-1 shrink-0" /><span><strong className="text-[#0f172a]">No paywalls.</strong> Every tool is free, with no locked "premium" tiers.</span></li>
+            <li className="flex items-start gap-2"><ArrowRight size={16} className="text-[#10b981] mt-1 shrink-0" /><span><strong className="text-[#0f172a]">Fast, clean, and mobile-friendly.</strong> Built to work on any device with no friction.</span></li>
+            <li className="flex items-start gap-2"><ArrowRight size={16} className="text-[#10b981] mt-1 shrink-0" /><span><strong className="text-[#0f172a]">Accurate, up-to-date tax calculations.</strong> Federal brackets and state rates are maintained for the current tax year.</span></li>
           </ul>
+          <p className="text-sm text-[#475569] pt-2 border-t border-[#e2e8f0]">
+            NetMoneyTools is independently developed and operated by a team of finance and technology professionals. We plan to expand our toolset regularly based on what users actually need.
+          </p>
         </section>
 
         <section className="bg-[#fef9ee] border border-[#f59e0b]/30 rounded-xl p-6 flex gap-4">

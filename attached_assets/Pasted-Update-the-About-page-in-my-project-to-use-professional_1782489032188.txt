@@ -1,0 +1,37 @@
+Update the About page in my project to use professional, company-style copy instead of the current personal story. 
+
+File to edit: `artifacts/netmoneytools/src/pages/About.tsx` (or wherever the About page component is)
+
+Replace the entire page content with this professional copy:
+
+**About NetMoneyTools**
+
+NetMoneyTools builds free, accurate financial calculators for anyone who needs fast answers without signing up or jumping through paywalls.
+
+We started with a simple frustration: most payroll and tax tools online are either buried behind registration walls, packed with ads, or give vague estimates that don't match real-world paychecks. So we built something better.
+
+**What We Do**
+
+Our calculators are designed for real-life use. Whether you're an employee negotiating salary, a freelancer planning quarterly taxes, or an employer budgeting total compensation, our tools give you precise numbers you can act on.
+
+Every calculator is built in-house with current federal and state tax data, and we keep them updated as tax laws change.
+
+**Current Tools**
+- Gross Up Calculator — Find the gross salary needed to hit a specific net take-home amount after taxes.
+- Paycheck Calculator — Calculate exact take-home pay after federal, state, and local taxes for all 50 states.
+
+**Coming Soon**
+- Pay Stub Generator
+- 1099 vs W-2 Compensation Compare
+- Currency & Money Converters
+- Additional financial and tax planning tools
+
+**Our Approach**
+- No signup required
+- No paywalls
+- Fast, clean, and mobile-friendly
+- Accurate, up-to-date tax calculations
+
+NetMoneyTools is independently developed and operated by a team of finance and technology professionals. We plan to expand our toolset regularly based on what users actually need.
+
+Make sure the page keeps the same layout/styling structure (heading, sections, etc.) but replace all the text content. Keep my name out of it entirely. After editing, commit the change with the message "Rewrite About page with professional copy" and push to GitHub so Vercel auto-deploys.
