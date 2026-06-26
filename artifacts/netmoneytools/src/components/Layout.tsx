@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Calculator, Menu, X, PiggyBank, ReceiptText, Home, Info, ShieldCheck } from "lucide-react";
+import { Calculator, Menu, X, PiggyBank, ReceiptText, FileText, Home, Info, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Layout() {
@@ -24,6 +24,7 @@ export default function Layout() {
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             <Link to="/gross-up-calculator" className={`hover:text-primary transition-colors ${location.pathname === '/gross-up-calculator' ? 'text-primary' : 'text-muted-foreground'}`}>Gross Up</Link>
             <Link to="/paycheck-calculator" className={`hover:text-primary transition-colors ${location.pathname.startsWith('/paycheck-calculator') ? 'text-primary' : 'text-muted-foreground'}`}>Paycheck</Link>
+            <Link to="/pay-stub-generator" className={`hover:text-primary transition-colors ${location.pathname === '/pay-stub-generator' ? 'text-primary' : 'text-muted-foreground'}`}>Pay Stub</Link>
             <Link to="/about" className={`hover:text-primary transition-colors ${location.pathname === '/about' ? 'text-primary' : 'text-muted-foreground'}`}>About</Link>
           </nav>
 
@@ -45,6 +46,9 @@ export default function Layout() {
           </Link>
           <Link to="/paycheck-calculator" className="flex items-center gap-3 p-3 rounded-md hover:bg-muted font-medium" onClick={closeMenu}>
             <ReceiptText size={20} className="text-accent" /> Paycheck Calculator
+          </Link>
+          <Link to="/pay-stub-generator" className="flex items-center gap-3 p-3 rounded-md hover:bg-muted font-medium" onClick={closeMenu}>
+            <FileText size={20} className="text-amber-500" /> Pay Stub Generator
           </Link>
           <Link to="/about" className="flex items-center gap-3 p-3 rounded-md hover:bg-muted font-medium" onClick={closeMenu}>
             <Info size={20} className="text-muted-foreground" /> About

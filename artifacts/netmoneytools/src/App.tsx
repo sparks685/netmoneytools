@@ -8,6 +8,7 @@ import Layout from "@/components/Layout";
 import Home from "@/pages/Home";
 import GrossUpCalculator from "@/pages/GrossUpCalculator";
 import PaycheckCalculator from "@/pages/PaycheckCalculator";
+import PayStubGenerator from "@/pages/PayStubGenerator";
 import About from "@/pages/About";
 import Privacy from "@/pages/Privacy";
 import NotFound from "@/pages/not-found";
@@ -23,6 +24,7 @@ function App() {
               <Route path="gross-up-calculator" element={<GrossUpCalculator />} />
               <Route path="paycheck-calculator" element={<PaycheckCalculator />} />
               <Route path="paycheck-calculator/:state" element={<PaycheckCalculator />} />
+              <Route path="pay-stub-generator" element={<PayStubGenerator />} />
               <Route path="about" element={<About />} />
               <Route path="privacy" element={<Privacy />} />
               <Route path="*" element={<NotFound />} />

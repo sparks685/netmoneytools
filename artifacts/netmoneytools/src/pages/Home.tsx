@@ -69,18 +69,20 @@ export default function Home() {
             </div>
           </Link>
 
-          <div className="bg-card border rounded-xl p-6 h-full shadow-sm flex flex-col opacity-70 cursor-not-allowed">
-            <div className="flex justify-between items-start mb-4">
-              <div className="bg-muted p-3 w-12 h-12 rounded-lg flex items-center justify-center">
-                <FileText className="text-muted-foreground" size={24} />
+          <Link to="/pay-stub-generator" className="group block h-full">
+            <div className="bg-card border rounded-xl p-6 h-full shadow-sm hover:shadow-md transition-all flex flex-col">
+              <div className="bg-amber-500/10 p-3 w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <FileText className="text-amber-500" size={24} />
               </div>
-              <span className="bg-accent/20 text-accent font-semibold text-xs px-2 py-1 rounded">Coming Soon</span>
+              <h2 className="text-xl font-bold text-headings mb-2">Pay Stub Generator</h2>
+              <p className="text-muted-foreground mb-4 flex-1">
+                Generate professional, compliant pay stubs with automatic tax calculations for your employees.
+              </p>
+              <div className="text-primary font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Open Tool &rarr;
+              </div>
             </div>
-            <h2 className="text-xl font-bold text-headings mb-2">Pay Stub Generator</h2>
-            <p className="text-muted-foreground flex-1">
-              Generate professional, compliant pay stubs with automatic tax calculations for your employees.
-            </p>
-          </div>
+          </Link>
 
           <div className="bg-card border rounded-xl p-6 h-full shadow-sm flex flex-col opacity-70 cursor-not-allowed">
             <div className="flex justify-between items-start mb-4">
