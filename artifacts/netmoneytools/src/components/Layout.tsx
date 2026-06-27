@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Calculator, Menu, X, PiggyBank, ReceiptText, FileText, Scale, Home, Info, ShieldCheck } from "lucide-react";
+import { Calculator, Menu, X, PiggyBank, ReceiptText, FileText, Scale, ShoppingCart, Home, Info, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Layout() {
@@ -26,6 +26,7 @@ export default function Layout() {
             <Link to="/paycheck-calculator" className={`hover:text-primary transition-colors ${location.pathname.startsWith('/paycheck-calculator') ? 'text-primary' : 'text-muted-foreground'}`}>Paycheck</Link>
             <Link to="/pay-stub-generator" className={`hover:text-primary transition-colors ${location.pathname === '/pay-stub-generator' ? 'text-primary' : 'text-muted-foreground'}`}>Pay Stub</Link>
             <Link to="/1099-vs-w2" className={`hover:text-primary transition-colors ${location.pathname === '/1099-vs-w2' ? 'text-primary' : 'text-muted-foreground'}`}>1099 vs W-2</Link>
+            <Link to="/sales-tax-calculator" className={`hover:text-primary transition-colors ${location.pathname === '/sales-tax-calculator' ? 'text-primary' : 'text-muted-foreground'}`}>Sales Tax</Link>
             <Link to="/about" className={`hover:text-primary transition-colors ${location.pathname === '/about' ? 'text-primary' : 'text-muted-foreground'}`}>About</Link>
           </nav>
 
@@ -53,6 +54,9 @@ export default function Layout() {
           </Link>
           <Link to="/1099-vs-w2" className="flex items-center gap-3 p-3 rounded-md hover:bg-muted font-medium" onClick={closeMenu}>
             <Scale size={20} className="text-violet-500" /> 1099 vs W-2 Compare
+          </Link>
+          <Link to="/sales-tax-calculator" className="flex items-center gap-3 p-3 rounded-md hover:bg-muted font-medium" onClick={closeMenu}>
+            <ShoppingCart size={20} className="text-rose-500" /> Sales Tax Calculator
           </Link>
           <Link to="/about" className="flex items-center gap-3 p-3 rounded-md hover:bg-muted font-medium" onClick={closeMenu}>
             <Info size={20} className="text-muted-foreground" /> About

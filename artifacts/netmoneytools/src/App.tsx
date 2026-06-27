@@ -10,6 +10,7 @@ import GrossUpCalculator from "@/pages/GrossUpCalculator";
 import PaycheckCalculator from "@/pages/PaycheckCalculator";
 import PayStubGenerator from "@/pages/PayStubGenerator";
 import ContractorCompare from "@/pages/ContractorCompare";
+import SalesTaxCalculator from "@/pages/SalesTaxCalculator";
 import About from "@/pages/About";
 import Privacy from "@/pages/Privacy";
 import NotFound from "@/pages/not-found";
@@ -27,6 +28,7 @@ function App() {
               <Route path="paycheck-calculator/:state" element={<PaycheckCalculator />} />
               <Route path="pay-stub-generator" element={<PayStubGenerator />} />
               <Route path="1099-vs-w2" element={<ContractorCompare />} />
+              <Route path="sales-tax-calculator" element={<SalesTaxCalculator />} />
               <Route path="about" element={<About />} />
               <Route path="privacy" element={<Privacy />} />
               <Route path="*" element={<NotFound />} />
