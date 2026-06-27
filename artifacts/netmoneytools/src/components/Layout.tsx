@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Calculator, Menu, X, PiggyBank, ReceiptText, FileText, Scale, ShoppingCart, RotateCcw, Home, Info, ShieldCheck } from "lucide-react";
+import { Calculator, Menu, X, PiggyBank, ReceiptText, FileText, Scale, ShoppingCart, RotateCcw, TrendingUp, Home, Info, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Layout() {
@@ -28,6 +28,7 @@ export default function Layout() {
             <Link to="/1099-vs-w2" className={`hover:text-primary transition-colors ${location.pathname === '/1099-vs-w2' ? 'text-primary' : 'text-muted-foreground'}`}>1099 vs W-2</Link>
             <Link to="/sales-tax-calculator" className={`hover:text-primary transition-colors ${location.pathname === '/sales-tax-calculator' ? 'text-primary' : 'text-muted-foreground'}`}>Sales Tax</Link>
             <Link to="/reverse-paycheck-calculator" className={`hover:text-primary transition-colors ${location.pathname === '/reverse-paycheck-calculator' ? 'text-primary' : 'text-muted-foreground'}`}>Reverse Pay</Link>
+            <Link to="/commission-calculator" className={`hover:text-primary transition-colors ${location.pathname === '/commission-calculator' ? 'text-primary' : 'text-muted-foreground'}`}>Commission</Link>
             <Link to="/about" className={`hover:text-primary transition-colors ${location.pathname === '/about' ? 'text-primary' : 'text-muted-foreground'}`}>About</Link>
           </nav>
 
@@ -61,6 +62,9 @@ export default function Layout() {
           </Link>
           <Link to="/reverse-paycheck-calculator" className="flex items-center gap-3 p-3 rounded-md hover:bg-muted font-medium" onClick={closeMenu}>
             <RotateCcw size={20} className="text-cyan-500" /> Reverse Paycheck
+          </Link>
+          <Link to="/commission-calculator" className="flex items-center gap-3 p-3 rounded-md hover:bg-muted font-medium" onClick={closeMenu}>
+            <TrendingUp size={20} className="text-orange-500" /> Commission Calculator
           </Link>
           <Link to="/about" className="flex items-center gap-3 p-3 rounded-md hover:bg-muted font-medium" onClick={closeMenu}>
             <Info size={20} className="text-muted-foreground" /> About

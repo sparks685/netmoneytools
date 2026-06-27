@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { PiggyBank, ReceiptText, FileText, Scale, ShoppingCart, RotateCcw, CheckCircle2, Shield, Smartphone, Zap } from "lucide-react";
+import { PiggyBank, ReceiptText, FileText, Scale, ShoppingCart, RotateCcw, TrendingUp, CheckCircle2, Shield, Smartphone, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
@@ -122,6 +122,21 @@ export default function Home() {
               <h2 className="text-xl font-bold text-headings mb-2">Reverse Paycheck Calculator</h2>
               <p className="text-muted-foreground mb-4 flex-1">
                 Enter your desired take-home pay and instantly find the gross salary you need to earn. Includes a donut chart breakdown.
+              </p>
+              <div className="text-primary font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Open Tool &rarr;
+              </div>
+            </div>
+          </Link>
+
+          <Link to="/commission-calculator" className="group block h-full">
+            <div className="bg-card border rounded-xl p-6 h-full shadow-sm hover:shadow-md transition-all flex flex-col">
+              <div className="bg-orange-500/10 p-3 w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <TrendingUp className="text-orange-500" size={24} />
+              </div>
+              <h2 className="text-xl font-bold text-headings mb-2">Commission Calculator</h2>
+              <p className="text-muted-foreground mb-4 flex-1">
+                Calculate commissions for real estate agents, sales reps, car salespeople, and business brokers — including tiered structures and caps.
               </p>
               <div className="text-primary font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                 Open Tool &rarr;
