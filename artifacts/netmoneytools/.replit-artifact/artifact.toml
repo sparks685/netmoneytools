@@ -17,14 +17,18 @@ localPort = 25118
 [services.development]
 run = "pnpm --filter @workspace/netmoneytools run dev"
 
-[services.production]
-build = [ "pnpm", "--filter", "@workspace/netmoneytools", "run", "build" ]
-publicDir = "artifacts/netmoneytools/dist/public"
-serve = "static"
+[services.production.build]
+args = ["pnpm", "--filter", "@workspace/netmoneytools", "run", "build"]
 
-[[services.production.rewrites]]
-from = "/*"
-to = "/index.html"
+[services.production.build.env]
+NODE_ENV = "production"
+
+[services.production.run]
+args = ["node", "--enable-source-maps", "artifacts/netmoneytools/dist/server/index.mjs"]
+
+[services.production.run.env]
+PORT = "25118"
+NODE_ENV = "production"
 
 [services.env]
 PORT = "25118"
