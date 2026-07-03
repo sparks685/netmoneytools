@@ -44,7 +44,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const clientDir = path.resolve(__dirname, "../client");
+const clientDir = path.resolve(__dirname, "..");
 
 app.use(
   express.static(clientDir, {
