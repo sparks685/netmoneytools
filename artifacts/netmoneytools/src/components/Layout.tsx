@@ -1,11 +1,26 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
+
+declare function gtag(...args: unknown[]): void;
 import { Calculator, Menu, X, PiggyBank, ReceiptText, FileText, Scale, ShoppingCart, RotateCcw, TrendingUp, Home, Info, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const location = useLocation();
+  const isInitialMount = React.useRef(true);
+
+  React.useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    gtag('event', 'page_view', {
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: window.location.pathname,
+    });
+  }, [location]);
 
   const closeMenu = () => setMobileMenuOpen(false);
 
